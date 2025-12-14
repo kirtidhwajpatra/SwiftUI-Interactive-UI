@@ -28,12 +28,13 @@ struct ProductCardView: View {
                             lineWidth: 3
                         )
                 )
-                .shadow(color: product.color.opacity(0.2), radius: 10, x: 0, y: 5)
-                .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.3 : 0.05), radius: 8, x: 0, y: 4)
+                .shadow(color: product.color.opacity(0.3), radius: 20, x: 0, y: 10)
+                .shadow(color: product.color.opacity(0.2), radius: 5, x: 0, y: 2)
             
             VStack(spacing: 12) {
                 Text(product.emoji)
                     .font(.system(size: 100))
+                    .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 5)
                 
                 Text(String(format: "$%.2f", product.price))
                     .font(.title2)
@@ -59,14 +60,13 @@ struct ProductCardView_Previews: PreviewProvider {
             ProductCardView(product: sampleProducts[0])
                 .frame(width: 180, height: 240)
                 .padding()
-                .background(Color.gray.opacity(0.2))
                 .preferredColorScheme(.light)
             
             ProductCardView(product: sampleProducts[0])
                 .frame(width: 180, height: 240)
                 .padding()
-                .background(Color.black)
                 .preferredColorScheme(.dark)
         }
     }
 }
+
